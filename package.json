@@ -1,0 +1,17 @@
+{
+  "name": "osmc-slides",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "slidev build",
+    "dev": "slidev --open",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@iconify-json/fa6-brands": "^1.2.6",
+    "@iconify-json/vscode-icons": "^1.2.33",
+    "@slidev/cli": "^52.8.0",
+    "@slidev/theme-default": "latest",
+    "vue": "^3.5.24"
+  }
+}
