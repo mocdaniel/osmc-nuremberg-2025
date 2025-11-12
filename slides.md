@@ -7,22 +7,10 @@ info: |
 class: text-center
 transition: slide-left
 mdc: true
+layout: image
+image: /osmc-cover.png
 ---
 
-# From Zero Observability to Zero-Code Observability with OpenTelemetry
-
-<div class="mt-12 py-1">
-  OSMC 2025<br/>
-  September 18, 2025
-</div>
-
-
-<img src="/otel.png" alt="OTel logo" class="h-32 absolute top-80 right-20"/>
-<img src="/osmc.svg" alt="OSMC logo" class="h-16 absolute top-5 right-95"/>
-
-<!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
--->
 
 ---
 layout: two-cols
@@ -86,7 +74,7 @@ Before we get started...
 
 ```sh
 cd osmc-workshop
-docker compose build
+docker compose build frontend talk-api speaker-api
 ```
 
 <style>
@@ -256,4 +244,111 @@ _For a system to be observable, it must be **instrumented**: that is, code from 
 layout: section
 ---
 
-# Lab 2: Instrumenting the First Application
+# Lab 2: Instrumenting the speaker-api Service
+
+---
+layout: section
+---
+
+# Lab 3: Instrumenting the frontend Service
+
+---
+layout: section
+---
+
+# Intermezzo: What is eBPF?
+
+<img class="absolute w-40 top-20 right-10" src="/ebpf.svg" alt="The eBPF logo" />
+
+---
+class: text-2xl
+---
+
+# eBPF
+
+Secure, privileged programs in the OS kernel
+
+- Evolution of BPF (_Berkeley Packet Filter_)
+- Allow you to **extend** functionalities of the OS kernel **at runtime** 
+- **Sandboxing** and **JIT compilation** for high performance and security
+- **event-based** and bound to _hooks_ (syscalls, tracepoints, etc.)
+- more and more influence and traction in **networking, security** and **observability**
+
+---
+
+# Overview of eBPF
+
+<img src="/ebpf-explained.png" alt="Overview of eBPF's applications and use-cases" class="w-180 m-x-auto m-t-4"/>
+
+<div class="text-gray p-l-20">
+
+Figure taken from [ebpf.io](https://ebpf.io/what-is-ebpf/#what-is-ebpf).
+
+</div>
+
+---
+class: text-xl
+---
+
+# The eBPF Lifecycle
+
+Heavily simplified
+
+1. Identification of desired hooks (e.g. `execve` syscall)
+2. Loading of the eBPF probe for the identified hook
+3. Verification of correctness and security of the eBPF probe:
+    - _Is the executing process adequatly privileged?_
+    - _Is the eBPF probe's size within the configured range?_
+    - _Is the eBPF probe's complexity low enough?_
+    - _Can memory safety of the eBPF probe be guaranteed?_
+    - _Is the eBPF probe proven to terminate?_
+4. Compilation of the eBPF probe to bytecode
+5. Execution of the eBPF probe for the desired events (_Hook Point_, _kprobe_ oder _uprobe_)
+
+---
+layout: section
+---
+
+# Lab 4: Instrumenting the talk-api Service
+
+---
+layout: section
+---
+
+# Collecting, Processing, and Storing OTel Signals
+
+---
+layout: two-cols
+---
+
+# OTel Collector
+
+Where all signals comes together
+
+<br />
+
+- **Receives, processes**, and **exports** telemetry data
+- Vendor-agnostic
+- Reduces overhead of operating multiple, signal-specific agents/collectors
+- Takes care of additional tasks like...
+  - ...**batching** of telemetry data
+  - ...**retrying** failed forwarding to backends
+  - ...**encrypting** telemetry data
+
+::right::
+
+<div class="h-full flex flex-col justify-center">
+  <img src="/otel-overview.png" alt="Flow of OTel signals from applications to backends" class="m-x-auto"/>
+</div>
+
+---
+
+# OTel Collector
+
+<img src="/collector-overview.png" alt="Detailed overview of the OTel collector's components and data streams" class="max-h-100 m-x-auto" />
+
+---
+layout: section
+---
+
+# Lab 5: Collecting and Storing Telemetry Data
