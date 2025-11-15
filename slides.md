@@ -74,7 +74,7 @@ Before we get started...
 
 ```sh
 cd osmc-workshop
-docker compose build frontend talk-api speaker-api
+docker compose --profile demo build
 ```
 
 <style>
