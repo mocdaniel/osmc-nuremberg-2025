@@ -352,3 +352,54 @@ layout: section
 ---
 
 # Lab 5: Collecting and Storing Telemetry Data
+
+---
+layout: section
+---
+
+# eBPF Application Instrumentation With Grafana Beyla
+
+---
+layout: two-cols
+---
+
+# Why Beyla?
+
+- Sometimes, auto-instrumentation isn't the most feasible way, due to:
+  - many ephemeral workloads
+  - too many different languages and SDKs
+  - tweaks needed for compiled languages (e.g. Rust or Go)
+- Beyla offers **eBPF-based** auto-instrumentation for:
+  - applications in many languages
+  - the OS networking stack
+  - container and Kubernetes environments
+
+::right::
+
+<img src="/beyla.png" alt="Grafana Beyla logo" class="absolute top-50 right-30 w-60"/>
+
+---
+layout: two-cols
+---
+
+# How Does Beyla Work?
+
+Baseline instrumentation for applications
+
+- Beyla instruments applications using eBPF:
+  - inspects the OS TCP/IP stack
+  - identifies requests from/to applications
+  - generates traces/metrics following OTel semantic conventions
+- Beyla can auto-detect applications by invoked binary or port usage
+- Beyla can enrich OTel signals with container/Kubernetes information
+- Beyla can be configured using environment variables or a dedicated config with service discovery
+
+::right::
+
+<img src="/beyla.png" alt="Grafana Beyla logo" class="absolute top-50 right-30 w-60"/>
+
+---
+layout: section
+---
+
+# Lab 6: Application Auto-Instrumentation with Grafana Beyla
