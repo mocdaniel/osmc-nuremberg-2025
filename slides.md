@@ -19,17 +19,17 @@ class: text-lg
 
 What are we going to do?
 
-- **10:00-10:30**: 📚 Housekeeping, first steps, introduction to OpenTelemetry
-- **10:30-11:30**: 🔧 Zero-code instrumentation with OTel auto-instrumentation SDKs
+- 📚 Housekeeping, first steps, introduction to OpenTelemetry
+- 🔧 Zero-code instrumentation with OTel auto-instrumentation SDKs
 - **11:30-11:45**: ☕ Coffee break
-- **11:45-12:15**: ♻️ Collecting and processing OTel signals
-- **12:15-12:45**: 🤖 Zero-touch instrumentation with Grafana Beyla
-- **12:45-13:00**: 🤖 Synthetic generation of OTel signals
+- ♻️ Collecting and processing OTel signals
+- 🪄 Zero-touch instrumentation with Grafana Beyla
+- 🤖 Synthetic generation of OTel signals
 - **13:00-14:00**: 🍱 Lunch break
-- **14:00-14:15**: Comparison: SDK vs. Beyla instrumentation
-- **14:15-14:45**: 🔋 All-in-one OTel setups with Grafana Alloy
-- **14:45-15:00**: 🎬 Recap and questions
-- **15:00**: ☕ Open-end coffee break, more questions, experimentation
+- 🔁 Comparison: SDK vs. Beyla instrumentation
+- 🔋 All-in-one OTel setups with Grafana Alloy
+- 🎬 Recap and questions
+- **15:30**: ☕ Open-end coffee break, more questions, experimentation
 
 ---
 layout: two-cols
