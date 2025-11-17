@@ -11,6 +11,25 @@ layout: image
 image: /osmc-cover.png
 ---
 
+---
+class: text-lg
+---
+
+# Housekeeping
+
+What are we going to do?
+
+- **10:00-10:30**: 📚 Housekeeping, first steps, introduction to OpenTelemetry
+- **10:30-11:30**: 🔧 Zero-code instrumentation with OTel auto-instrumentation SDKs
+- **11:30-11:45**: ☕ Coffee break
+- **11:45-12:15**: ♻️ Collecting and processing OTel signals
+- **12:15-12:45**: 🤖 Zero-touch instrumentation with Grafana Beyla
+- **12:45-13:00**: 🤖 Synthetic generation of OTel signals
+- **13:00-14:00**: 🍱 Lunch break
+- **14:00-14:15**: Comparison: SDK vs. Beyla instrumentation
+- **14:15-14:45**: 🔋 All-in-one OTel setups with Grafana Alloy
+- **14:45-15:00**: 🎬 Recap and questions
+- **15:00**: ☕ Open-end coffee break, more questions, experimentation
 
 ---
 layout: two-cols
@@ -403,3 +422,61 @@ layout: section
 ---
 
 # Lab 6: Application Auto-Instrumentation with Grafana Beyla
+
+---
+layout: section
+---
+
+# Synthetic Traffic and Signals with k6
+
+<img src="/k6.png" alt="Grafana k6 logo" class="absolute w-30 bottom-30 right-40"/>
+
+---
+layout: two-cols
+---
+
+# Grafana k6
+
+Synthetic testing with Javascript
+
+- [k6](https://k6.io) is an extensible load testing tool by Grafana
+- it can run...
+  - load/performance tests
+  - browser tests
+  - synthetic monitoring
+  - infrastructure tests
+
+➡️ This means we can use k6 to generate more requests and thus more telemetry signals for our demo application
+
+::right::
+
+<div class="h-full flex-col justify-center">
+
+```js
+import http from 'k6/http'
+import { sleep } from 'k6'
+
+export let options = {
+  thresholds: {
+    http_req_duration: ['p(95)<500', 'p(99)<1500'],
+  },
+}
+
+export default function () {
+  const BASE_URL = 'https://test-api.k6.io'
+
+  http.get(`${BASE_URL}/public/crocodiles`)
+  http.get(`${BASE_URL}/public/crocodiles/1`)
+  http.get(`${BASE_URL}/public/crocodiles/2`)
+  sleep(0.3)
+}
+```
+
+</div>
+
+<style>
+  .slidev-code {
+    background-color: rgb(27, 27, 27);
+    @apply mt-24;
+  }
+</style>
