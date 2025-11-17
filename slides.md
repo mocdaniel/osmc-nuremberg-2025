@@ -480,3 +480,9 @@ export default function () {
     @apply mt-24;
   }
 </style>
+
+---
+layout: section
+---
+
+# Lab 7: Generating Synthetic OTel Signals
