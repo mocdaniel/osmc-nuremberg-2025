@@ -93,7 +93,7 @@ Before we get started...
 
 ```sh
 cd osmc-workshop
-docker compose --profile demo build
+docker compose build
 ```
 
 <style>
@@ -486,3 +486,40 @@ layout: section
 ---
 
 # Lab 7: Generating Synthetic OTel Signals
+
+---
+layout: two-cols
+---
+
+# Thank you
+
+for participating in this workshop
+
+<br />
+<br />
+
+📊 **Slides**: [slides.dbodky.me/osmc-nuremberg-2025](https://slides.dbodky.me/osmc-nuremberg-2025)
+
+<fa6-brands-github /> **Workshop**: [mocdaniel/osmc-workshop](https://github.com/osmc-workshop)
+
+👍 **Feedback**: [feedback.dbodky.me](https://feedback.dbodky.me) 
+
+<div class="m-l-6 m-t--2" >
+
+  Code: `OSMC-OTEL`
+
+</div>
+
+::right::
+
+<div class="h-full flex flex-col items-center m-x-auto">
+
+## Slides
+
+<img src="/slides.svg" alt="QR code for slides.dbodky.me/s2n-regensburg-2025" class="h-40 w-40 m-b-10"/>
+
+## Feedback
+
+<img src="/feedback.svg" alt="QR code for feedback.dbodky.me" class="h-40 w-40 m-b-10" />
+
+</div>
